@@ -45,3 +45,23 @@ This will output the ID of the detached running container, which we'll need if w
 
 + `docker attach [ID]` 
 
+**Tags**
+
+When running an image, multiple versions may be available and if none is specified, the `latest` version/tag is used... 
+
+`docker run ubuntu` is actually running `docker run ubuntu:latest` by default.
+
+To specify a version, check out the available versions on docker hub.. for example:
+
+`docker run ubuntu:16.04`
+
+**STDIN on run**
+
+If you have a containarized application that asks for some input, the parts where input is asked for, will be skipped if the container isn't running in interactive mode.. by default, containers will run in a non-interactive mode and some containerized applications that ask for input on the terminal, won't work correctly, to fix this we use the `-i` option which is short of interactive.. for example;
+
+`docker run -i example/app-name`
+
+Even if you run the above command, the application will be able to listen to your input but you won't be able to see what is prompted to the terminal, for this you must also use the `-t` option next to the i.
+
+`docker run -it example/app-name`
+
