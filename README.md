@@ -5,7 +5,8 @@
 ### Docker recap
 + `docker run CONTAINER-NAME`
   Fetches if not available and runs the specified container.
-+ `docker run CONTAINER-NAME`
-  Fetches if not available and runs the specified container.
-+ `docker run CONTAINER-NAME`
-  Fetches if not available and runs the specified container.
++ `docker ps`
+  Lists all actively running containers.
++ `docker ps -a`
+  Lists all actively running containers as well as stopped containers.
+ 
