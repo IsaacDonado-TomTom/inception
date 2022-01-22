@@ -31,6 +31,6 @@ The above docker command runs the ubuntu image, then executes the command sleep 
 
 We can also execute commands on a running container using the `exec` command, if ubuntu is running, we can do something like this.
 
-`docker exec CONTAINER-NAME [command]`
++ `docker exec CONTAINER-NAME [command]`
 
 Where CONTAINER-NAME would be whatever name is assigned to the ubuntu image, and [command] is whichever command we want to execute on the running container.
