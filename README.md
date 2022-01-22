@@ -65,8 +65,15 @@ Even if you run the above command, the application will be able to listen to you
 
 `docker run -it example/app-name`
 
-**Port mapping**
+**Run Port mapping**
 
 Each container is assigned its own IP Address, so if we ran a containarized app, we could access the app by navigatin to the container's IP address, but we can also map existing available ports to specific containerized apps using the `-p` option.. and we'll be able to launch several instanced of the container image  and access them through different ports.
 
 + `docker run -p 5000:8080 sample/appname` Here we are running sample/appname and we're setting the hosts' 5000 port to the 8080 port within the container.
+
+**Run Volume mapping**
+
+We can also map certain folders within our containers to point to mounted folders that exist outside the container using the `-v` option.
+Let's pretend we want a mySQL database, but we don't want the table data to be affected by the service's status, we want the data to exist in our host even if we delete the mysql container and reinstall it.. We could do something like this
+
+`docker run -v /custom/data:var/lib/mysql mysql`
