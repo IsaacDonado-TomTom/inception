@@ -5,6 +5,8 @@
 ### Docker recap
 + `docker run CONTAINER-NAME`
   Fetches if not available and runs the specified container.
+Docker run first searches for an available container image in the host, if it's not found it tries to fetch the specified image in docker-hub and then runs it
+
 + `docker ps`
   Lists all actively running containers.
 + `docker ps -a`
@@ -20,3 +22,7 @@
 + `docker pull IMAGE-NAME`
   Pulls image from docker hub and stores it in the host for future usage.
   
+
+If we docker run an image that doesn't have a default command or process, such as OS images, we can specify with the `docker run` command which process we want to call after said image runs.
+
+for example: `docker run ubuntu sleep 100`
