@@ -9,4 +9,14 @@
   Lists all actively running containers.
 + `docker ps -a`
   Lists all actively running containers as well as stopped containers.
- 
++ `docker stop CONTAINER-NAME`
+  Stops/halts the specified container.
++ `docker rm CONTAINER-NAME`
+  Removes the specified container.
++ `docker images`
+  Lists all images stored on the host for easy fetching.
++ `docker rmi IMAGE-NAME`
+  Removes the specified image from host.
++ `docker pull IMAGE-NAME`
+  Pulls image from docker hub and stores it in the host for future usage.
+  
