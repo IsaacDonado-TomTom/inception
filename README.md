@@ -23,6 +23,14 @@ Docker run first searches for an available container image in the host, if it's 
   Pulls image from docker hub and stores it in the host for future usage.
   
 
-If we docker run an image that doesn't have a default command or process, such as OS images, we can specify with the `docker run` command which process we want to call after said image runs.
+If we docker run an image that doesn't have a default command or process, such as OS images, we can specify with the `docker run` command which process we want to call after said image runs by writing a command after the name of the image in a `docker run` command.
 
 for example: `docker run ubuntu sleep 100`
+
+The above docker command runs the ubuntu image, then executes the command sleep 100 which would make the image pause for 100 seconds,
+
+We can also execute commands on a running container using the `exec` command, if ubuntu is running, we can do something like this.
+
+`docker exec CONTAINER-NAME [command]`
+
+Where CONTAINER-NAME would be whatever name is assigned to the ubuntu image, and [command] is whichever command we want to execute on the running container.
