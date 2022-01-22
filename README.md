@@ -77,3 +77,9 @@ We can also map certain folders within our containers to point to mounted folder
 Let's pretend we want a mySQL database, but we don't want the table data to be affected by the service's status, we want the data to exist in our host even if we delete the mysql container and reinstall it.. We could do something like this
 
 `docker run -v /custom/data:var/lib/mysql mysql`
+
+
+<br /><br />
+
+**inspect command**
+docker ps is enough for basic information but if you want extensive information about a container such as the IP address and more, use the `docker inspect [NAME/ID]` command.
