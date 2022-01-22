@@ -82,4 +82,5 @@ Let's pretend we want a mySQL database, but we don't want the table data to be a
 <br /><br />
 
 **inspect command**
+
 docker ps is enough for basic information but if you want extensive information about a container such as the IP address and more, use the `docker inspect [NAME/ID]` command.
