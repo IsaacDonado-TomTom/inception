@@ -5,3 +5,7 @@
 ### Docker recap
 + `docker run CONTAINER-NAME`
   Fetches if not available and runs the specified container.
++ `docker run CONTAINER-NAME`
+  Fetches if not available and runs the specified container.
++ `docker run CONTAINER-NAME`
+  Fetches if not available and runs the specified container.
