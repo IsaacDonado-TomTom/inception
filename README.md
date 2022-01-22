@@ -34,3 +34,14 @@ We can also execute commands on a running container using the `exec` command, if
 + `docker exec CONTAINER-NAME [command]`
 
 Where CONTAINER-NAME would be whatever name is assigned to the ubuntu image, and [command] is whichever command we want to execute on the running container.
+
+** attach and detach **
+
+Sometimes when we run an existing container, it will be launched in attached mode, which means we'll see the output of the container in our terminal.. We can bypass this by specifying in the `docker run` command that we want it to be detached, for example; 
+
++ `docker run -d sample/app-name`
+
+This will output the ID of the detached running container, which we'll need if we want to attach our terminal back to the container using the following command.
+
++ `docker attach [ID]` 
+
