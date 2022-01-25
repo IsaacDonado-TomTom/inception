@@ -2,8 +2,8 @@
 ` From subject pdf `: This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine.
 
 # Table of Contents
-1. (Docker recap)[#docker_recap]
-  a. (Basic Docker commands)[#docker_recap]
+1. [Docker recap](#docker_recap)
+  a. [Basic Docker commands](#docker_recap)
 
 <a name="docker_recap"></a>
 ### Docker recap
