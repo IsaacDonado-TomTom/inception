@@ -144,3 +144,30 @@ bla bla bla
 ```
 <a name="dockerfile"></a>
 ### Make your own image with Dockerfile
+
+To build our own images with a Dockerfile we should first think about and list the steps we should follow in order to set up an application manually..
+
++ Install an OS
++ Update repositories.. etc.
++ Install dependencies
++ Copy needed course code into container
++ Run the app.
+
+Let's think about our previous example: 
+
+```python
+import os
+text = os.environ.get("TEXT")
+print(TEXT)
+```
+
+How can we containerize and ship this application? Create a file named "Dockerfile"
+
+```Dockerfile
+FROM Alpine
+
+RUN apk update
+RUN apk upgrade
+RUN apk add python3
+COPY ./app.py /app/app.py
+```
