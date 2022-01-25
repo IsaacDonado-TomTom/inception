@@ -15,6 +15,7 @@
   + [Environment variable on run](#env_variables_on_run)
   + [Make your own image with Dockerfile](#dockerfile)
   + [ENTRYPOINT vs CMD](#entrypoint_cmd)
+  + [Networking](#networking)
 
 <a name="docker_recap"></a>
 ### Docker recap
@@ -213,3 +214,11 @@ In order to get this image to run, we have to give it an argument because sleep 
 `sudo docker run [IMAGE] 5` : We pass 5 as an argument to the ENTRYPOINT command.
 
 We can use CMD instead to hard code a command with its parameters or, we can even use both so that CMD is used if ENTRYPOINT is unable to run because it's missing an argument, if you want to go this route and use both ENTRYPOINT and CMD it is required to use the JSON format instead and I'm unsure if it's required but usually ENTRYPOINT is specified first.
+
+### Networking
+
+There are three default networks you can bind your container to
+
++ **Bridge (default)**: `docker run Ubuntu` Without specifying this is the automatic network, it's bridge network to you hosts network connection and an IP address is automatically assigned.
++ **None**: `docker run Ubuntu --network=none` This runs the image without connection to any network.
++ **Host**: `docker run Ubuntu --network=host` This uses the very same network as the host, there is no bridge establised, any app hosted on any port will be accessible from the host using the hosts' very own IP address, the downside to this is that we cannot run multiple or the same apps if they're hosted on the same port number.
