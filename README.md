@@ -100,4 +100,21 @@ output:
 default_text
 ```
 
-But what if we want to modify the text we want to output later, after the app is containerized...? 
+But what if we want to modify the text we want to output later, after the app is containerized...? We need to move the text from the code and this part will vary depending on the programming language used.. our python file should now look like this.
+
+```python
+import os
+text = os.environ.get("TEXT")
+print(TEXT)
+```
+
+and after containerizing our app we must launch the docker container by setting the environment variable like this:
+
+```bash
+sudo docker run -e TEXT="bla bla bla" example/app_name
+```
+
+output:
+```bash
+bla bla bla
+```
