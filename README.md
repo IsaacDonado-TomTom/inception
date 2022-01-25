@@ -212,4 +212,4 @@ In order to get this image to run, we have to give it an argument because sleep 
 
 `sudo docker run [IMAGE] 5` : We pass 5 as an argument to the ENTRYPOINT command.
 
-We can use CMD instead to hard code a command with its parameters or, we can even use both so that CMD is used if ENTRYPOINT is unable to run because it's missing an argument.
+We can use CMD instead to hard code a command with its parameters or, we can even use both so that CMD is used if ENTRYPOINT is unable to run because it's missing an argument, if you want to go this route and use both ENTRYPOINT and CMD it is required to use the JSON format instead and I'm unsure if it's required but usually ENTRYPOINT is specified first.
