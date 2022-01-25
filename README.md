@@ -7,6 +7,12 @@
   + [Default command](#default_command)
   + [Execute commands on running container](#running_containers)
   + [Attach & detach](#attach_detach)
+  + [Tags](tags)
+  + [STDIN on run](#stdin_on_run)
+  + [Port mapping on run](#port_mapping_on_run)
+  + [volume mapping on run](#volume_mapping_on_run)
+  + [Inspect command](#inspect)
+  + [Environment variable on run](#env_variables_on_run)
 
 <a name="docker_recap"></a>
 ### Docker recap
@@ -55,6 +61,7 @@ This will output the ID of the detached running container, which we'll need if w
 
 + `docker attach [ID]` 
 
+<a name="tags"></a>
 **Tags**
 
 When running an image, multiple versions may be available and if none is specified, the `latest` version/tag is used... 
@@ -65,6 +72,7 @@ To specify a version, check out the available versions on docker hub.. for examp
 
 `docker run ubuntu:16.04`
 
+ <a name="stdin_on_run"></a>
 **STDIN on run**
 
 If you have a containarized application that asks for some input, the parts where input is asked for, will be skipped if the container isn't running in interactive mode.. by default, containers will run in a non-interactive mode and some containerized applications that ask for input on the terminal, won't work correctly, to fix this we use the `-i` option which is short of interactive.. for example;
@@ -75,12 +83,15 @@ Even if you run the above command, the application will be able to listen to you
 
 `docker run -it example/app-name`
 
+
+<a name="port_mapping_on_run"></a>
 **Run Port mapping**
 
 Each container is assigned its own IP Address, so if we ran a containarized app, we could access the app by navigatin to the container's IP address, but we can also map existing available ports to specific containerized apps using the `-p` option.. and we'll be able to launch several instanced of the container image  and access them through different ports.
 
 + `docker run -p 5000:8080 sample/appname` Here we are running sample/appname and we're setting the hosts' 5000 port to the 8080 port within the container.
 
+<a name="volume_mapping_on_run"></a>
 **Run Volume mapping**
 
 We can also map certain folders within our containers to point to mounted folders that exist outside the container using the `-v` option.
@@ -91,10 +102,12 @@ Let's pretend we want a mySQL database, but we don't want the table data to be a
 
 <br /><br />
 
+<a name="inspect"></a>
 **inspect command**
 
 docker ps is enough for basic information but if you want extensive information about a container such as the IP address and more, use the `docker inspect [NAME/ID]` command.
 
+<a name="env_variables_on_run"></a>
 ### Environment variables
 
 We can use variables in a file and use them accross all our docker containers when necessary, the best example to picture this is with an example.. Let's write a very simple python program that prints a string..
