@@ -170,4 +170,16 @@ RUN apk update
 RUN apk upgrade
 RUN apk add python3
 COPY ./app.py /app/app.py
+ENTRYPOINT python3 /app/app.py
+```
+
+In order to build this image and save it on our host.. use the following command
+```bash
+sudo docker build [Folder where Dockerfile is located] -t [Name of new image]
+sudo docker build . -t examples/app_one
+```
+
+Now we've containerized our app and can set the text by using the `-e` option when using `docker run`
+```bash
+sudo docker run -e 
 ```
