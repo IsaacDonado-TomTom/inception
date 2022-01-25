@@ -199,3 +199,17 @@ If during this process a step fails, Docker caches your progress so if you fix o
 
 <a name="entrypoint_cmd"></a>
 ### ENTRYPOINT vs CMD
+
+The main difference between ENTRYPOINT and CMD is with ENTRYPOINT, you cannot replace the default command on startup, ENTRYPOINT is used to append arguments to an already specified command... 
+
+For example: We have a Dockerfile that ends like this
+
+```Dockerfile
+ENTRYPOINT sleep
+```
+
+In order to get this image to run, we have to give it an argument because sleep requires an argument and an error will be thrown if it isn't provided... 
+
+`sudo docker run [IMAGE] 5` : We pass 5 as an argument to the ENTRYPOINT command.
+
+We can use CMD instead to hard code a command with its parameters or, we can even use both so that CMD is used if ENTRYPOINT is unable to run because it's missing an argument.
