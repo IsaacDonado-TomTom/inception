@@ -84,3 +84,20 @@ Let's pretend we want a mySQL database, but we don't want the table data to be a
 **inspect command**
 
 docker ps is enough for basic information but if you want extensive information about a container such as the IP address and more, use the `docker inspect [NAME/ID]` command.
+
+### Environment variables
+
+We can use variables in a file and use them accross all our docker containers when necessary, the best example to picture this is with an example.. Let's write a very simple python program that prints a string..
+
+app.py:
+```python
+text = "default_text"
+print(text)
+```
+
+output:
+```bash
+default_text
+```
+
+But what if we want to modify the text we want to output later, after the app is containerized...? 
