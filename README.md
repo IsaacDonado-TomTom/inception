@@ -222,3 +222,6 @@ There are three default networks you can bind your container to
 + **Bridge (default)**: `docker run Ubuntu` Without specifying this is the automatic network, it's bridge network to you hosts network connection and an IP address is automatically assigned.
 + **None**: `docker run Ubuntu --network=none` This runs the image without connection to any network.
 + **Host**: `docker run Ubuntu --network=host` This uses the very same network as the host, there is no bridge establised, any app hosted on any port will be accessible from the host using the hosts' very own IP address, the downside to this is that we cannot run multiple or the same apps if they're hosted on the same port number.
+
+We can also access and communicate between different containers on the same hosts, we can do this using its IP address but this isn't recommended as there's no guarantee the IP address of a container will always be the same, the recommended way to communicate between containers is using the container names, docker creates network name spaces for each container.
+
