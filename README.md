@@ -14,6 +14,7 @@
   + [Inspect command](#inspect)
   + [Environment variable on run](#env_variables_on_run)
   + [Make your own image with Dockerfile](#dockerfile)
+  + [ENTRYPOINT vs CMD](#entrypoint_cmd)
 
 <a name="docker_recap"></a>
 ### Docker recap
@@ -181,5 +182,20 @@ sudo docker build . -t examples/app_one
 
 Now we've containerized our app and can set the text by using the `-e` option when using `docker run`
 ```bash
-sudo docker run -e 
+sudo docker run -e TEXT="NEW TEXT" examples/app_one
 ```
+
+So, let's go over the dockerfile and define each command.
+
+`FROM` command: We specify which base image, we're basing our new image on, this can be either an OS or an existing image, all dockerfiles must be based off of another image/OS.
+
+`RUN` command: This one simply runs whichever command you want to run in the container.
+
+`COPY` command: This command is used to copy files from the host to the containers.
+
+`ENTRYPOINT` command: this allows us to tell docker which command or program to launch when all the steps are finished.. remember, containers only live until the command they're made to execute, finishes.
+
+If during this process a step fails, Docker caches your progress so if you fix or add another command after the successfull ones, they will execute quickly.
+
+<a name="entrypoint_cmd"></a>
+### ENTRYPOINT vs CMD
