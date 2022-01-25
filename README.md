@@ -16,6 +16,7 @@
   + [Make your own image with Dockerfile](#dockerfile)
   + [ENTRYPOINT vs CMD](#entrypoint_cmd)
   + [Networking](#networking)
+  + [Storage & volumes](#storage)
 
 <a name="docker_recap"></a>
 ### Docker recap
@@ -224,4 +225,17 @@ There are three default networks you can bind your container to
 + **Host**: `docker run Ubuntu --network=host` This uses the very same network as the host, there is no bridge establised, any app hosted on any port will be accessible from the host using the hosts' very own IP address, the downside to this is that we cannot run multiple or the same apps if they're hosted on the same port number.
 
 We can also access and communicate between different containers on the same hosts, we can do this using its IP address but this isn't recommended as there's no guarantee the IP address of a container will always be the same, the recommended way to communicate between containers is using the container names, docker creates network name spaces for each container.
+
+<a name="storage"></a>
+### Storage & volumes
+
+There may be instances in which you want to store some data from within the container, and have access to it, modify it, etc no matter if the container is running or whether it even exists, for this we use volumes.. Let's suppose we want to store all the mysql data tables in our host, no matter what happens with our container.. We'd have to use the `--mount` option when running an image.
+
+First we create a volume `sudo docker volume create [NAME]`
+
+now when running our image, specify the volume you want to link with.. `sudo docker run --mount type=volume,source=[NAME],target=/var/lib/mysql mysql`
+
+If we want to bind with a different directory elsewhere in our hosts and not within the docker volumes folder, we set the type to bind and provide a full path
+
+`sudo docker run --mount type=bind,source=/home/dir,target=/var/lib/mysql mysql`
 
