@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+
+  mariadb:
+    build: mariadb
+    image: mariadb:idonado
+    container_name: mariadb
+    init: true
+    environment:
+      - MYSQL_WP_DATABASE
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_ADMIN_USER
+      - MYSQL_ADMIN_PASSWORD
+    networks:
+      - local
+    expose:
+      - "3306"
+    volumes:
+      - mariadb:/var/lib/mysql
+    restart: always
+
+  nginx:
+    build: nginx
+    image: nginx:idonado
+    container_name: nginx
+    init: true
+    environment:
+      - WEBSITE_URL
+    depends_on:
+      - wordpress
+    networks:
+      - local
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress:/var/www/html
+    restart: always
+
+  wordpress:
+    build: wordpress
+    image: wordpress:idonado
+    container_name: wordpress
+    init: true
+    environment:
+      - MYSQL_ADMIN_USER
+      - MYSQL_ADMIN_PASSWORD
+      - MYSQL_WP_DATABASE
+    depends_on:
+      - mariadb
+    networks:
+      - local
+    expose:
+      - "9000"
+    volumes:
+      - wordpress:/var/www/html
+    restart: always
+
+networks:
+
+  local:
+    driver: bridge
+
+volumes:
+
+  mariadb:
+    name: mariadb_volume
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /home/$USER/data/mariadb
+  wordpress:
+    name: wordpress_volume
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/$USER/data/wordpress
