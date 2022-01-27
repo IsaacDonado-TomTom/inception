@@ -22,7 +22,7 @@ NAME = inception
 all: fclean reload
 
 clean:
-	@ sed '/idonado.42.fr/d' /etc/hosts
+	@ sudo sed -i '/idonado.42.fr/d' /etc/hosts
 	@ docker-compose -f srcs/docker-compose.yml --env-file ./srcs/.env down
 
 fclean: clean
