@@ -8,6 +8,7 @@ RUN apt install -y mariadb-server
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint_script.sh /usr/local/bin/
+COPY backup.sql /
 
 ENTRYPOINT [ "entrypoint_script.sh" ]
 
