@@ -12,6 +12,8 @@ services:
       - WP_DB_ROOT_PASSWORD
       - WP_DB_ADMIN_USER
       - WP_DB_ADMIN_PASSWORD
+    networks:
+      - app_default
     expose:
       - "3306"
     volumes:
@@ -25,6 +27,8 @@ services:
     init: true
     depends_on:
       - wordpress
+    networks:
+      - app_default
     ports:
       - "443:443"
     volumes:
@@ -42,6 +46,8 @@ services:
       - DATABASE_WP
     depends_on:
       - mariadb
+    networks:
+      - app_default
     expose:
       - "9000"
     volumes:
@@ -62,3 +68,8 @@ volumes:
       type: none
       o: bind
       device: /home/$USER/data/wordpress
+
+networks:
+
+  app_default:
+    driver: bridge
