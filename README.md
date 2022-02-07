@@ -1,9 +1,9 @@
-# inception, a System Administration related exercise.
+# Docker recap document for
+## inception, a System Administration related exercise.
 ` From subject pdf `: This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine.
 
 # Table of Contents
-1. [Docker recap](#docker_recap)
-  + [Basic Docker commands](#docker_recap)
+  + [Basic Docker commands](#basic_commands)
   + [Default command](#default_command)
   + [Execute commands on running container](#running_containers)
   + [Attach & detach](#attach_detach)
@@ -18,8 +18,8 @@
   + [Networking](#networking)
   + [Storage & volumes](#storage)
 
-<a name="docker_recap"></a>
-### Docker recap
+<a name="basic_commands"></a>
+### Docker - Basic commands
 + `docker run CONTAINER-NAME`
   Fetches if not available and runs the specified container.
 Docker run first searches for an available container image in the host, if it's not found it tries to fetch the specified image in docker-hub and then runs it
