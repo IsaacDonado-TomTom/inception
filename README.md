@@ -17,6 +17,7 @@
   + [ENTRYPOINT vs CMD](#entrypoint_cmd)
   + [Networking](#networking)
   + [Storage & volumes](#storage)
+  + [Easily run different services with docker-compose](#docker-compose)
 
 <a name="basic_commands"></a>
 ### Docker - Basic commands
@@ -238,4 +239,8 @@ now when running our image, specify the volume you want to link with.. `sudo doc
 If we want to bind with a different directory elsewhere in our hosts and not within the docker volumes folder, we set the type to bind and provide a full path
 
 `sudo docker run --mount type=bind,source=/home/dir,target=/var/lib/mysql mysql`
+
+
+<a name="docker-compose"></a>
+### docker-compose
 
