@@ -1,3 +1,8 @@
+# To start docker containers
+1. git clone
+2. `cd into folder`
+3. `make`
+
 # Docker recap document for
 ## inception, a System Administration related exercise.
 ` From subject pdf `: This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine.
